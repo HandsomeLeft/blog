@@ -88,3 +88,31 @@ function foo():never {
 
 }
 ```
+
+tuple(元组)
+```typescript
+//允许多种元素的组合
+const info: [string,number,number] = ['why',21,18]
+```
+
+函数类型:(new_state: any) => void
+
+对象类型&可选类型
+```typescript
+function bar(obj:{x:number,y:string,z?:number}){
+  console.log(obj.x);
+}
+bar({x:123,y'ceaser',z:321})
+```
+
+联合类型
+```typescript
+const foo: number|string|boolean = 123
+```
+可选类型其实就是联合类型|undefined
+
+类型别名
+```typescript
+type my_type = number|string
+const foo: my_type = 123
+```
