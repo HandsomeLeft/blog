@@ -73,7 +73,7 @@ void
 ```typescript
 function foo(num1:number): void {
   console.log(num1);
-  //当一个函数没有返回值的时候，这个函数就是void类型，这个也可以不写
+  //当一个函数返回值为任何值的时候，这个函数就是void类型，这个也可以不写
 }
 ```
 
@@ -116,3 +116,43 @@ const foo: number|string|boolean = 123
 type my_type = number|string
 const foo: my_type = 123
 ```
+
+类型断言
+```typescript
+//通过类型断言可以将一个普遍的类型转成一个具体的类型
+const el = document.getElementById('ceaser') as HTMLImageElement
+el.src = 'url'
+```
+非空类型断言  ! (放在可能为空的变量后面，告诉编译器这个值不可能为空)
+
+
+可选链
+```typescript
+console.log(obj.friend?.age);
+
+```
+
+!!和??
+```typescript
+!!就是转成boolean
+??（空值合并操作符）
+let meassgae: string|null = null
+const content = meassgae ?? '出现null就用我'
+```
+
+字面量类型
+```typescript
+let num: 123 = 123
+let num2: 'ceaser' = 'ceaser'
+//字面量类型和联合类型结合才有意义
+```
+
+函数类型
+()=>void
+()=>number
+
+可选类型必须写在必选类型的后面
+
+
+函数重载
+
