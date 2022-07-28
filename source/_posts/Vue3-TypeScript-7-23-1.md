@@ -26,6 +26,7 @@ const p = new Person("ceaser", 21);
 console.log(p.name);
 console.log(p.age);
 ```
+<!-- more -->
 
 ### 类的继承
 初级版
