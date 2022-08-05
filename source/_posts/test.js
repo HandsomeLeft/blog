@@ -297,22 +297,38 @@
 // request_data('ceaser').then((res) => { console.log('成功',res); }).catch((err) => { console.log('失败',err); })
 
 //可迭代对象
-const iterable_obj = {
-    names:['aaa','bbb','ccc'],
-    [Symbol.iterator]: function(){
-        let index = 0
-        return {
-            next: ()=>{
-                if(index < this.names.length){
-                    return {done:false , value:this.names[index++]}
-                } else {
-                    return {done:true , value:undefined}
-                }
-            }
-        }
-    }
+// const iterable_obj = {
+//     names:['aaa','bbb','ccc'],
+//     [Symbol.iterator]: function(){
+//         let index = 0
+//         return {
+//             next: ()=>{
+//                 if(index < this.names.length){
+//                     return {done:false , value:this.names[index++]}
+//                 } else {
+//                     return {done:true , value:undefined}
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// for(let i of iterable_obj){
+//     console.log(i);
+// }
+
+
+//async await
+async function foo() {
+    console.log('begin');
+    console.log('middle');
+    console.log('end');
 }
 
-for(let i of iterable_obj){
-    console.log(i);
-}
+//async函数的返回值一定是一个promise
+
+const promise = foo()
+
+promise.then(res => {
+    console.log(res);//因为foo函数没写返回值，默认就是返回一个undefined
+})
