@@ -17,7 +17,6 @@
 // }
 // log_time(new Date, 'DEBUG', '监测到')
 
-
 // var log_time_new = time => type => message => {
 //     console.log(`[${time.getHours()}:${time.getMinutes()}]+${type}+${message}`);
 // }
@@ -97,7 +96,6 @@
 // }
 // // console.log(new person('ceaser', 21, 1.75, '成都'));
 
-
 // // var foo_func = new person('ceaser', 21, 1.75, '成都').eating
 // // foo_func()
 // // new person('ceaser', 21, 1.75, '成都').eating()
@@ -135,7 +133,6 @@
 // foo_two.eating()
 // foo_two.running()
 
-
 //第一种继承的实现
 // function Person() {
 //     this.eating = function () {
@@ -160,7 +157,6 @@
 // ceaser.eating()
 // ceaser.running()
 // console.log(ceaser.foo);
-
 
 //第二种继承
 // function Person(name,age) {
@@ -317,18 +313,38 @@
 //     console.log(i);
 // }
 
-
 //async await
-async function foo() {
-    console.log('begin');
-    console.log('middle');
-    console.log('end');
+// async function foo() {
+//     console.log('begin');
+//     console.log('middle');
+//     console.log('end');
+// }
+
+// //async函数的返回值一定是一个promise
+
+// const promise = foo()
+
+// promise.then(res => {
+//     console.log(res);//因为foo函数没写返回值，默认就是返回一个undefined
+// })
+function request() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(222);
+    }, 2000);
+  });
 }
 
-//async函数的返回值一定是一个promise
+async function foo() {
+  //await后面一般是返回一个表达式这个表达式一定要返回一个promise
+  //await函数的返回值一定是这个对应的promise resolve后的结果
+  const res = await request();
+  console.log(res);
+}
 
-const promise = foo()
-
-promise.then(res => {
-    console.log(res);//因为foo函数没写返回值，默认就是返回一个undefined
+async function bar() {
+    const res1 = await request()
+}
+bar().catch(err => {
+    console.log(err);
 })

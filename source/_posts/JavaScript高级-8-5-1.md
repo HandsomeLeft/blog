@@ -25,3 +25,37 @@ promise.then(res => {
     console.log(res);//因为foo函数没写返回值，默认就是返回一个undefined
 })
 ```
+
+### async中使用await关键字
+```javascript
+function request() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(222);
+    }, 2000);
+  });
+}
+
+async function foo() {
+  //await后面一般是返回一个表达式这个表达式一定要返回一个promise
+  //await函数的返回值一定是这个对应的promise resolve后的结果
+  const res = await request();
+  console.log(res);
+}
+```
+```javascript
+function request() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject('err');
+    }, 2000);
+  });
+}
+
+async function bar() {
+    const res1 = await request()
+}
+bar().catch(err => {
+    console.log(err);
+})
+```
