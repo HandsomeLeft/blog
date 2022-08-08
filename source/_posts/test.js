@@ -328,7 +328,6 @@
 //     console.log(res);//因为foo函数没写返回值，默认就是返回一个undefined
 // })
 
-
 // function request() {
 //   return new Promise((resolve, reject) => {
 //     setTimeout(() => {
@@ -350,3 +349,23 @@
 // bar().catch(err => {
 //     console.log(err);
 // })
+var name = "window";
+
+var A = {
+  name: "A",
+  sayHello: function () {
+    console.log("sayHello");
+    var s = () => console.log(this.name);
+    return s; //返回箭头函数s
+  },
+};
+
+var sayHello = A.sayHello();
+sayHello(); // 输出A
+
+var B = {
+  name: "B",
+};
+A.sayHello.call(B);
+sayHello.call(B); //还是A
+sayHello.call(); //还是A

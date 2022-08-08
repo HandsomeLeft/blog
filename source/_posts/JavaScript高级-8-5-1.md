@@ -94,3 +94,47 @@ promise
 注意这个 catch 还是指向的是第一个 promise，但是如果第一个 promise 没异常，其实还是会指向第二个 promise
 
 .finally()没有参数，但不管怎么样一定会被执行
+
+### 复习迭代器和生成器
+```javascript
+const names = ["abc", "cba", "nba"];
+let index = 0;
+const name_iterater = {
+  next: function () {
+    if (index < names.length) {
+      return { done: false, value: names[index++] };
+    } else {
+      return { done: false, value: undefined };
+    }
+  },
+};
+
+console.log(name_iterater.next());
+console.log(name_iterater.next());
+console.log(name_iterater.next());
+console.log(name_iterater.next());
+console.log(name_iterater.next());
+```
+将names，index，和迭代器放在同一个对象中，就叫可迭代对象
+```javascript
+const iterable_obj = {
+  names: ["abc", "cba", "nba"],
+  [Symbol.iterator]: function () {
+    let index = 0;
+    return {
+      next: () => {
+        if (index < this.names.length) {
+          return { done: false, value: this.names[index++] };
+        } else {
+          return { done: false, value: undefined };
+        }
+      },
+    };
+  },
+};
+
+console.log(iterable_obj[Symbol.iterator]().next());
+```
+for of只能遍历可迭代对象
+
+
