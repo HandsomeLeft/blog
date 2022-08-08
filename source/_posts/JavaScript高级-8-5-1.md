@@ -3,30 +3,33 @@ title: JavaScript高级.8.5.1
 date: 2022-08-05 19:52:37
 cover: https://img2.baidu.com/it/u=557819644,2340142626&fm=253&fmt=auto&a=138&f=JEG?w=1000&h=500
 tags:
-    - ES6
-    - 前端
+  - ES6
+  - 前端
 categories:
   - [前端]
   - [ES6]
 ---
-## async-await-js线程
+
+## async-await-js 线程
+
 ```javascript
 async function foo() {
-    console.log('begin');
-    console.log('middle');
-    console.log('end');
+  console.log("begin");
+  console.log("middle");
+  console.log("end");
 }
 
 //async函数的返回值一定是一个promise
 
-const promise = foo()
+const promise = foo();
 
-promise.then(res => {
-    console.log(res);//因为foo函数没写返回值，默认就是返回一个undefined
-})
+promise.then((res) => {
+  console.log(res); //因为foo函数没写返回值，默认就是返回一个undefined
+});
 ```
 
-### async中使用await关键字
+### async 中使用 await 关键字
+
 ```javascript
 function request() {
   return new Promise((resolve, reject) => {
@@ -43,19 +46,51 @@ async function foo() {
   console.log(res);
 }
 ```
+
 ```javascript
 function request() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      reject('err');
+      reject("err");
     }, 2000);
   });
 }
 
 async function bar() {
-    const res1 = await request()
+  const res1 = await request();
 }
-bar().catch(err => {
-    console.log(err);
-})
+bar().catch((err) => {
+  console.log(err);
+});
 ```
+
+### 复习 promise
+
+1、then 方法本身也是有返回值的，它的返回值是 promise
+如果返回的是一个普通值，那么这个普通的值被作为一个新的 promise 的 resolve 值
+
+```javascript
+promise
+  .then((res) => {
+    return "aaaaa"; //这里aaaaa会被promise包裹，作为resolve的值，会返回一个promise
+  })
+  .then((res) => {
+    //这里是新的promise对应的then
+    //如果没有返回值，那么其实也会返回undefined，也能生成一个promise
+  });
+```
+
+2、如果返回一个 promise
+那么 promise 由传入的这个 promise 决定
+
+```javascript
+promise
+  .then((res) => {
+    return 111;
+  })
+  .catch((err) => {});
+```
+
+注意这个 catch 还是指向的是第一个 promise，但是如果第一个 promise 没异常，其实还是会指向第二个 promise
+
+.finally()没有参数，但不管怎么样一定会被执行
