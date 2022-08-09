@@ -133,8 +133,19 @@ const iterable_obj = {
   },
 };
 
+const iterator1 = iterable_obj[Symbol.iterator]();
+
+console.log("bbb", iterator1);
+
 console.log(iterable_obj[Symbol.iterator]().next());
+console.log(iterable_obj[Symbol.iterator]().next());
+console.log(iterable_obj[Symbol.iterator]().next());
+console.log(iterator1.next());
+console.log(iterator1.next());
+console.log(iterator1.next());
+console.log(iterator1.next());
 ```
 for of只能遍历可迭代对象
+***箭头函数体内的this对象，就是定义该函数时所在的作用域指向的对象，而不是使用时所在的作用域指向的对象。***
 
 
