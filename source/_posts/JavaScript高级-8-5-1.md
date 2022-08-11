@@ -156,3 +156,21 @@ for of只能遍历可迭代对象
 
 ### 生成器
 生成器也是一个函数，实现了控制函数暂停执行1
+```javascript
+//生成器函数
+function* foo() {
+  console.log('开始');
+
+  const n1 = 123
+  console.log(n1);
+  yield
+    
+  const n2 = 234
+  console.log(n2);
+  yield
+}
+
+const generator = foo()
+generator.next()
+generator.next()
+```
