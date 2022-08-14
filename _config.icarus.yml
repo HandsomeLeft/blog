@@ -267,12 +267,12 @@ widgets:
             Github:
                 icon: fab fa-github
                 url: https://github.com/HandsomeLeft
-            Facebook:
-                icon: fab fa-facebook
-                url: https://facebook.com
-            Twitter:
-                icon: fab fa-twitter
-                url: https://twitter.com
+            # Facebook:
+            #     icon: fab fa-facebook
+            #     url: https://facebook.com
+            # Twitter:
+            #     icon: fab fa-twitter
+            #     url: https://twitter.com
             # Dribbble:
             #     icon: fab fa-dribbble
             #     url: https://dribbble.com
@@ -304,6 +304,7 @@ widgets:
         # Names and URLs of the sites
         links:
             Hexo: https://hexo.io
+            Ceaser全家桶: http://ceaser.fun
             陈氏集团: http://chenCeaser.usa3v.cn/
     # Categories widget configurations
     -

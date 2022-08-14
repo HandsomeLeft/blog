@@ -68,6 +68,7 @@ bar().catch((err) => {
 
 1、then 方法本身也是有返回值的，它的返回值是 promise
 如果返回的是一个普通值，那么这个普通的值被作为一个新的 promise 的 resolve 值
+<!-- more -->
 
 ```javascript
 promise
