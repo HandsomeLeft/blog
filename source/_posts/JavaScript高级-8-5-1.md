@@ -68,6 +68,7 @@ bar().catch((err) => {
 
 1、then 方法本身也是有返回值的，它的返回值是 promise
 如果返回的是一个普通值，那么这个普通的值被作为一个新的 promise 的 resolve 值
+
 <!-- more -->
 
 ```javascript
@@ -97,6 +98,7 @@ promise
 .finally()没有参数，但不管怎么样一定会被执行
 
 ### 复习迭代器和生成器
+
 ```javascript
 const names = ["abc", "cba", "nba"];
 let index = 0;
@@ -116,7 +118,9 @@ console.log(name_iterater.next());
 console.log(name_iterater.next());
 console.log(name_iterater.next());
 ```
-将names，index，和迭代器放在同一个对象中，就叫可迭代对象
+
+将 names，index，和迭代器放在同一个对象中，就叫可迭代对象
+
 ```javascript
 const iterable_obj = {
   names: ["abc", "cba", "nba"],
@@ -146,32 +150,54 @@ console.log(iterator1.next());
 console.log(iterator1.next());
 console.log(iterator1.next());
 ```
-for of只能遍历可迭代对象
-***箭头函数体内的this对象，就是定义该函数时所在的作用域指向的对象，而不是使用时所在的作用域指向的对象。***
 
+for of 只能遍历可迭代对象
+**_箭头函数体内的 this 对象，就是定义该函数时所在的作用域指向的对象，而不是使用时所在的作用域指向的对象。_**
 
 只要是可迭代对象就可以 for of ，展开语法，解构赋值
 
-但是对象也可以展开语法，解构赋值，但是这是在es9中新增的特性，实现原理不是迭代器
-
+但是对象也可以展开语法，解构赋值，但是这是在 es9 中新增的特性，实现原理不是迭代器
 
 ### 生成器
-生成器也是一个函数，实现了控制函数暂停执行1
+
+生成器也是一个函数，实现了控制函数暂停执行 1
+
 ```javascript
 //生成器函数
 function* foo() {
-  console.log('开始');
+  console.log("开始");
 
-  const n1 = 123
+  const n1 = 123;
   console.log(n1);
-  yield
-    
-  const n2 = 234
+  yield;
+
+  const n2 = 234;
   console.log(n2);
-  yield
+  yield;
 }
 
-const generator = foo()
-generator.next()
-generator.next()
+const generator = foo();
+generator.next();
+generator.next();
+```
+
+在生成器函数中，return 是特殊的 yield,后面的语句也不会执行
+next方法也可以传递参数
+```javascript
+function* foo() {
+  console.log("开始");
+
+  const n1 = 123;
+  console.log(n1);
+  const n = yield n1;
+
+  const n2 = 234 * n;
+  console.log(n2);
+  yield n2;
+}
+
+const generator = foo();
+console.log(generator.next());
+console.log(generator.next(10));
+console.log(generator.next());
 ```

@@ -84,19 +84,36 @@
 
 
 //生成器函数
-function* foo() {
-  console.log('开始');
+// function* foo() {
+//   console.log('开始');
 
-  const n1 = 123
-  console.log(n1);
-  yield
+//   const n1 = 123
+//   console.log(n1);
+//   yield
     
-  const n2 = 234
+//   const n2 = 234
+//   console.log(n2);
+//   yield
+// }
+
+// const generator = foo()
+// generator.next()
+// generator.next()
+// generator.next()
+
+function* foo() {
+  console.log("开始");
+
+  const n1 = 123;
+  console.log(n1);
+  const n = yield n1;
+
+  const n2 = 234 * n;
   console.log(n2);
-  yield
+  yield n2;
 }
 
-const generator = foo()
-generator.next()
-generator.next()
-generator.next()
+const generator = foo();
+console.log(generator.next());
+console.log(generator.next(10));
+console.log(generator.next());
