@@ -246,3 +246,4 @@ console.log(arr_iterator.next());
 console.log(arr_iterator.next());
 ```
 
+### 异步代码的处理方案

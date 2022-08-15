@@ -137,19 +137,28 @@
 // console.log(arr_iterator.next());
 // console.log(arr_iterator.next());
 
-function* create_iterator(arr) {
-  let index = 0;
-  for (const item of arr) {
-    yield item;
-  }
-  // yield arr[index++]
-  // yield arr[index++]
-  // yield arr[index++]
-}
+// function* create_iterator(arr) {
+//   let index = 0;
+//   for (const item of arr) {
+//     yield item;
+//   }
+//   // yield arr[index++]
+//   // yield arr[index++]
+//   // yield arr[index++]
+// }
 
-const arr = ["abc", "cba", "nba", "bbc"];
-const arr_iterator = create_iterator(arr);
-console.log(arr_iterator.next());
-console.log(arr_iterator.next());
-console.log(arr_iterator.next());
-console.log(arr_iterator.next());
+// const arr = ["abc", "cba", "nba", "bbc"];
+// const arr_iterator = create_iterator(arr);
+// console.log(arr_iterator.next());
+// console.log(arr_iterator.next());
+// console.log(arr_iterator.next());
+// console.log(arr_iterator.next());
+
+function quest(mes, handle1, handle2) {
+  if ((mes = "ceaser")) {
+    const message = "ceaser come on";
+    handle1(message);
+  } else {
+    handle2("err");
+  }
+}
