@@ -201,3 +201,48 @@ console.log(generator.next());
 console.log(generator.next(10));
 console.log(generator.next());
 ```
+
+### 用生成器的用法写迭代器
+//迭代器
+```javascript
+function create_iterator(err) {
+  let index = 0;
+  return {
+    next: function () {
+      if (index < arr.length) {
+        return { done: false, value: arr[index++] };
+      } else {
+        return { done: true, value: undefined };
+      }
+    },
+  };
+}
+
+const arr = ["abc", "cba", "nba"];
+const arr_iterator = create_iterator(arr);
+console.log(arr_iterator.next());
+console.log(arr_iterator.next());
+console.log(arr_iterator.next());
+console.log(arr_iterator.next());
+```
+**迭代器是一个对象，里面有一个next函数**
+
+```javascript
+function* create_iterator(arr) {
+  let index = 0;
+  for (const item of arr) {
+    yield item;
+  }
+  // yield arr[index++]
+  // yield arr[index++]
+  // yield arr[index++]
+}
+
+const arr = ["abc", "cba", "nba", "bbc"];
+const arr_iterator = create_iterator(arr);
+console.log(arr_iterator.next());
+console.log(arr_iterator.next());
+console.log(arr_iterator.next());
+console.log(arr_iterator.next());
+```
+
