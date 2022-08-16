@@ -163,29 +163,29 @@
 //   }
 // }
 
-function request_data(url) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(url);
-    }, 2000);
-  });
-}
+// function request_data(url) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve(url);
+//     }, 2000);
+//   });
+// }
 
-function* get_data() {
-  const res1 = yield request_data("ceaser");
-  const res2 = yield request_data(res1 + "bbb");
-  const res3 = yield request_data(res2 + "ccc");
-  console.log(res3);
-}
+// function* get_data() {
+//   const res1 = yield request_data("ceaser");
+//   const res2 = yield request_data(res1 + "bbb");
+//   const res3 = yield request_data(res2 + "ccc");
+//   console.log(res3);
+// }
 
-const generator = get_data();
-generator.next().value.then((res) => {
-  generator.next(res).value.then((res) => {
-    generator.next(res).value.then((res) => {
-      generator.next(res)
-    })
-  });
-});
+// const generator = get_data();
+// generator.next().value.then((res) => {
+//   generator.next(res).value.then((res) => {
+//     generator.next(res).value.then((res) => {
+//       generator.next(res)
+//     })
+//   });
+// });
 
 // async function get_data() {
 //   const res1 = await request_data("ceaser");
@@ -194,3 +194,15 @@ generator.next().value.then((res) => {
 //   console.log(res3);
 // }
 // get_data();
+
+
+async function foo() {
+  await new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("ceaser");
+    },5000)
+  })
+  console.log('后面的代码');
+}
+
+foo()
