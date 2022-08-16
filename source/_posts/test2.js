@@ -154,11 +154,43 @@
 // console.log(arr_iterator.next());
 // console.log(arr_iterator.next());
 
-function quest(mes, handle1, handle2) {
-  if ((mes = "ceaser")) {
-    const message = "ceaser come on";
-    handle1(message);
-  } else {
-    handle2("err");
-  }
+// function quest(mes, handle1, handle2) {
+//   if ((mes = "ceaser")) {
+//     const message = "ceaser come on";
+//     handle1(message);
+//   } else {
+//     handle2("err");
+//   }
+// }
+
+function request_data(url) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(url);
+    }, 2000);
+  });
 }
+
+function* get_data() {
+  const res1 = yield request_data("ceaser");
+  const res2 = yield request_data(res1 + "bbb");
+  const res3 = yield request_data(res2 + "ccc");
+  console.log(res3);
+}
+
+const generator = get_data();
+generator.next().value.then((res) => {
+  generator.next(res).value.then((res) => {
+    generator.next(res).value.then((res) => {
+      generator.next(res)
+    })
+  });
+});
+
+// async function get_data() {
+//   const res1 = await request_data("ceaser");
+//   const res2 = await request_data(res1 + "bbb");
+//   const res3 = await request_data(res2 + "ccc");
+//   console.log(res3);
+// }
+// get_data();
