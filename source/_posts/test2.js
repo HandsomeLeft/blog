@@ -196,13 +196,20 @@
 // get_data();
 
 
-async function foo() {
-  await new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("ceaser");
-    },5000)
-  })
-  console.log('后面的代码');
-}
+// async function foo() {
+//   await new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("ceaser");
+//     },5000)
+//   })
+//   console.log('后面的代码');
+// }
 
-foo()
+// foo()
+
+let foo = ['abc','cba','bba']
+const iterator = foo[Symbol.iterator]()
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
