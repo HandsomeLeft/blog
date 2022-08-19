@@ -207,9 +207,15 @@
 
 // foo()
 
-let foo = ['abc','cba','bba']
-const iterator = foo[Symbol.iterator]()
-console.log(iterator.next());
-console.log(iterator.next());
-console.log(iterator.next());
-console.log(iterator.next());
+// let foo = ['abc','cba','bba']
+// const iterator = foo[Symbol.iterator]()
+// console.log(iterator.next());
+// console.log(iterator.next());
+// console.log(iterator.next());
+// console.log(iterator.next());
+
+function foo(){
+    var bar = 0
+}
+foo()
+console.log(bar);
