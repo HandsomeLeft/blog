@@ -160,7 +160,7 @@ for of 只能遍历可迭代对象
 
 ### 生成器
 
-生成器也是一个函数，实现了控制函数暂停执行 1111
+生成器也是一个函数，实现了控制函数暂停执行 11111
 
 ```javascript
 //生成器函数
@@ -182,7 +182,8 @@ generator.next();
 ```
 
 在生成器函数中，return 是特殊的 yield,后面的语句也不会执行
-next方法也可以传递参数
+next 方法也可以传递参数
+
 ```javascript
 function* foo() {
   console.log("开始");
@@ -203,7 +204,9 @@ console.log(generator.next());
 ```
 
 ### 用生成器的用法写迭代器
+
 //迭代器
+
 ```javascript
 function create_iterator(err) {
   let index = 0;
@@ -225,7 +228,8 @@ console.log(arr_iterator.next());
 console.log(arr_iterator.next());
 console.log(arr_iterator.next());
 ```
-**迭代器是一个对象，里面有一个next函数**
+
+**迭代器是一个对象，里面有一个 next 函数**
 
 ```javascript
 function* create_iterator(arr) {
@@ -247,6 +251,7 @@ console.log(arr_iterator.next());
 ```
 
 ### 异步代码的处理方案
+
 ```javascript
 function quest(mes, handle1, handle2) {
   if ((mes = "ceaser")) {
@@ -259,6 +264,7 @@ function quest(mes, handle1, handle2) {
 ```
 
 高级方案
+
 ```javascript
 function request_data(url) {
   return new Promise((resolve, reject) => {
@@ -279,13 +285,14 @@ const generator = get_data();
 generator.next().value.then((res) => {
   generator.next(res).value.then((res) => {
     generator.next(res).value.then((res) => {
-      generator.next(res)
-    })
+      generator.next(res);
+    });
   });
 });
 ```
 
 终极方案
+
 ```javascript
 function request_data(url) {
   return new Promise((resolve, reject) => {
@@ -300,6 +307,5 @@ async function get_data() {
   const res3 = await request_data(res2 + "ccc");
   console.log(res3);
 }
-get_data()
+get_data();
 ```
-
