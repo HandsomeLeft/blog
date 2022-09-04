@@ -214,8 +214,8 @@
 // console.log(iterator.next());
 // console.log(iterator.next());
 
-function foo(){
-    var bar = 0
-}
-foo()
-console.log(bar);
+// function foo(){
+//     var bar = 0
+// }
+// foo()
+// console.log(bar);
