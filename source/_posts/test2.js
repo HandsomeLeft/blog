@@ -218,8 +218,10 @@
 // }
 // foo()
 // console.log(bar);
-let a = 0;
-let b = 1;
-let c = a && b && 2;
-let d = a || b || 2;
-console.log(c, b);
+// let a = 0;
+// let b = 1;
+// let c = a && b && 2;
+// let d = a || b || 2;
+// console.log(c, b);
+
+console.log([0.2 - 0.1 == 0.1, 0.8 - 0.6 == 0.2]);
