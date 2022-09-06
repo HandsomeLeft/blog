@@ -195,7 +195,6 @@
 // }
 // get_data();
 
-
 // async function foo() {
 //   await new Promise((resolve, reject) => {
 //     setTimeout(() => {
@@ -219,3 +218,8 @@
 // }
 // foo()
 // console.log(bar);
+let a = 0;
+let b = 1;
+let c = a && b && 2;
+let d = a || b || 2;
+console.log(c, b);
