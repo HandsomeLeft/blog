@@ -1,14 +1,15 @@
+"use strict";
+
+const { log } = require("console");
+
 // let num: number = 123
 // num = 222
-
+exports.__esModule = true;
 // let num2: number = 0b111 //二进制
 // let num3: number = 0o456//八进制
-
 // let flag: boolean = true
 // flag = 20 > 30
-
 // const foo: number | string | boolean = 321
-
 // class Person {
 //     name: string
 //     age:number
@@ -20,7 +21,6 @@
 // const p = new Person('ceaser',21)
 // console.log(p.name);
 // console.log(p.age);
-
 // class Person {
 //   name: string = "";
 //   age: number = 0;
@@ -44,11 +44,9 @@
 //     console.log("studying");
 //   }
 // }
-
 // const p1 = new Student("ceaser", 21);
 // console.log(p1);
 // p1.eating();
-
 // class Animal {
 //   action() {
 //     console.log("animal running");
@@ -70,14 +68,12 @@
 //   });
 // }
 // foo([new Dogs(), new fish()]);
-
 // class Person {
 //   private name: string = "";//private关键字的变量只能在内部调用
 //   get_name() {
 //     console.log(this.name);
 //   }
 // }
-
 // class Person {
 //   private _name: string = "";
 //   get name() {
@@ -90,25 +86,21 @@
 // const n1 = new Person();
 // n1.name = "ceaser";
 // console.log(n1.name);
-
 // class Person {
 //   static time: string = "20:00";
 // }
 // console.log(Person.time);
-
 // function sum<T>(num1: T): T {
 //   return num1;
 // }
 // sum<number>(2);
 // sum<{ name: string }>({ name: "ceaser" });
 // sum<any[]>(["ceaser", 21]);
-
 // interface Ifoo<T, E> {
 //   name: T;
 //   age: E;
 // }
 // const p: Ifoo<string, number> = { name: "ceaser", age: 21 };
-
 // class Point<T> {
 //   x: T;
 //   y: T;
@@ -119,36 +111,31 @@
 //     this.z = z;
 //   }
 // }
-
 // const n = new Point(1, 2, 3);
 // const n2 = new Point<number>(1, 2, 3);
 // console.log(n);
-
 // interface ILength {
 //     length: number
 // }
-
 // function foo<T extends ILength>(arg: T) {
 //     return arg.length
 // }
-
 // foo('123')
-
-function passwordStrength(pwd: string): number {
-  let value: number = 0;
-  if (/[a-zA-Z+]/g.test(pwd)) {
-    value++;
-  }
-  if (/[0-9]/g.test(pwd)) {
-    value++;
-  }
-  if (/.[^a-zA-Z0-9]/g.test(pwd)) {
-    value++;
-  }
-  if (/[-`=\\;',./~!@#$%^&*()_+|{}:"<>?]+/g.test(pwd)) {
-    value++;
-  }
-  return value;
-}
-passwordStrength("a1");
-export {};
+// function passwordStrength(pwd) {
+//   var value = 0;
+//   if (/[a-zA-Z+]/g.test(pwd)) {
+//     value++;
+//   }
+//   if (/[0-9]/g.test(pwd)) {
+//     value++;
+//   }
+//   if (/[a-zA-Z0-9]/g.test(pwd)) {
+//     value++;
+//   }
+//   if (/[-`=\\;',./~!@#$%^&*()_+|{}:"<>?]+/g.test(pwd)) {
+//     value++;
+//   }
+//   return value;
+// }
+// console.log(passwordStrength("C1,"));
+console.log(/[-`=\\;',./~!@#$%^&*()_+|{}:"<>?]+/g.test("c1,"));
