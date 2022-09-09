@@ -224,5 +224,43 @@
 // let d = a || b || 2;
 // console.log(c, b);
 
-console.log([0.2 - 0.1 == 0.1, 0.8 - 0.6 == 0.2]);
-console.log(0.8 - 0.3);
+// console.log([0.2 - 0.1 == 0.1, 0.8 - 0.6 == 0.2]);
+// console.log(0.8 - 0.3);
+
+// const iterable_obj = {
+//   names: ["abc", "cba", "nba"],
+//   [Symbol.iterator]: function () {
+//     let index = 0;
+//     return {
+//       next: () => {
+//         if (index < this.names.length) {
+//           return { done: false, value: this.names[index++] };
+//         } else {
+//           return { done: false, value: undefined };
+//         }
+//       },
+//     };
+//   },
+// };
+
+// const iterator1 = iterable_obj[Symbol.iterator]();
+
+// console.log(iterable_obj[Symbol.iterator]().next());
+// console.log(iterable_obj[Symbol.iterator]().next());
+// console.log(iterable_obj[Symbol.iterator]().next());
+// console.log(iterable_obj[Symbol.iterator]().next());
+
+// console.log(iterator1.next());
+// console.log(iterator1.next());
+// console.log(iterator1.next());
+// console.log(iterator1.next());
+
+var name = "world!";
+(function () {
+  if (typeof name === "undefined") {
+    var name = "jack";
+    console.log("Goodbye" + name);
+  } else {
+    console.log("hello" + name);
+  }
+})();

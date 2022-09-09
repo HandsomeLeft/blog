@@ -138,4 +138,6 @@ exports.__esModule = true;
 //   return value;
 // }
 // console.log(passwordStrength("C1,"));
+
+
 console.log(/[-`=\\;',./~!@#$%^&*()_+|{}:"<>?]+/g.test("c1,"));
