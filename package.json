@@ -10,7 +10,7 @@
     "push": "git add .&&git commit -m 'ceaser'&& git push origin master"
   },
   "hexo": {
-    "version": "6.3.0"
+    "version": "6.1.0"
   },
   "dependencies": {
     "bulma-stylus": "^0.8.0",
